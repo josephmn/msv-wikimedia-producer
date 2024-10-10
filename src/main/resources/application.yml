@@ -1,0 +1,16 @@
+server:
+  port: 7070
+spring:
+  application:
+    name: msv-wikimedia-producer
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+  output:
+    ansi:
+      enabled: ALWAYS
