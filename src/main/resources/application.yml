@@ -3,6 +3,7 @@ server:
 spring:
   application:
     name: msv-wikimedia-producer
+    version: "@project.version@"
 
   kafka:
     producer:

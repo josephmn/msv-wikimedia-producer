@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>api.azure</groupId>
 	<artifactId>msv-wikimedia-producer</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>msv-wikimedia-producer</name>
 	<description>Project producer Wikimedia for Spring Boot &amp; kafka</description>
 	<url>https://github.com/josephmn/msv-wikimedia-producer.git</url>
