@@ -1,17 +1,36 @@
-server:
-  port: 7070
-spring:
-  application:
-    name: msv-wikimedia-producer
-    version: "@project.version@"
+#spring:
+#  cloud:
+#    profiles:
+#      active: prod
 
-  kafka:
-    producer:
-      bootstrap-servers: localhost:9092
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-      # value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+## Activar un perfil desde la l�nea de comandos
+# =============================================
+# File mvn
+# --------
+# mvn spring-boot:run -Dspring-boot.run.profiles=prod -Dserver.port=9010
+# mvn spring-boot:run -Dspring-boot.run.profiles=dev -Dserver.port=9010
 
-  output:
-    ansi:
-      enabled: ALWAYS
+# File java
+# ---------
+# java -jar msv-customer-1.0.0.jar --spring.profiles.active=dev
+# java -jar msv-customer-1.0.0.jar --spring.profiles.active=prod
+
+#######################################################################################################################
+
+## Activar un perfil en tu IDE
+# ============================
+# Si est�s usando un IDE como IntelliJ IDEA o Eclipse, puedes establecer el perfil en la configuraci�n de ejecuci�n:
+
+# IntelliJ IDEA
+# ================
+# Ve a Run > Edit Configurations y en la pesta�a de configuraciones del proyecto a�ade :
+# --spring.profiles.active=dev
+# --spring.profiles.active=prod
+# en el campo de "Program Arguments".
+
+# Eclipse
+# ==========
+# Ve a Run > Run Configurations, selecciona tu proyecto, y en la pesta�a Arguments a�ade:
+# --spring.profiles.active=dev
+# --spring.profiles.active=prod
+# en "Program Arguments".

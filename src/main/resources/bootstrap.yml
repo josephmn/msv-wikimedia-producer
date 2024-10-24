@@ -1,0 +1,15 @@
+#server:
+#  port: 7070
+spring:
+  application:
+    name: msv-wikimedia-producer
+    version: "@project.version@"
+  profiles:
+    active: prod
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER:http://localhost:8888}
+
+  output:
+    ansi:
+      enabled: ALWAYS
