@@ -10,7 +10,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class WikimediaStreamConsumer {
 
     private final WebClient webClient;
-
     private final WikimediaProducer producer;
 
     public WikimediaStreamConsumer(WebClient.Builder webClientBuilder, WikimediaProducer producer) {
@@ -25,7 +24,14 @@ public class WikimediaStreamConsumer {
                 .uri("/stream/recentchange")
                 .retrieve()
                 .bodyToFlux(String.class)
+//                .doOnNext(event -> {
+//                    // Manejo de cada evento recibido
+//                    System.out.println("Evento recibido: " + event);
+//                    // Enviar a Kafka u otra lógica de procesamiento
+//                })
+                .doOnError(error -> System.err.println("Error en el stream: " + error.getMessage()))
                 // .subscribe(log::info);
+                .retry() // Reintenta automáticamente si ocurre algún error
                 .subscribe(producer::sendMessage);
     }
 }
